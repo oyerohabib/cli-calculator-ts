@@ -2,7 +2,7 @@ import { question } from "readline-sync";
 
 type Operator = "+" | "-" | "*" | "/";
 
-const isOperator = (operator: string): boolean => {
+const isOperator = (operator: Operator): boolean => {
   switch (operator) {
     case "+":
     case "-":
@@ -38,7 +38,7 @@ const askQuestion = () => {
   const operator = question("enter operator: \n");
   const secondStr = question("enter second number: \n");
   const validInput =
-    (isNumber(firstStr), isOperator(operator), isNumber(secondStr));
+    (isNumber(firstStr), isOperator(operator as Operator), isNumber(secondStr));
 
   if (validInput) {
     const firstNum = parseInt(firstStr);
